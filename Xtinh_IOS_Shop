@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="XTINHIOS STORE - Shop game, kim cương, acc game và vật phẩm">
+<title>XTINHIOS STORE</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#060a14;
+    color:#fff;
+}
+
+a{
+    text-decoration:none;
+    color:white;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(5,9,20,.96);
+    border-bottom:1px solid #263552;
+}
+
+.nav{
+    max-width:1250px;
+    margin:auto;
+    min-height:70px;
+    padding:12px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:27px;
+    font-weight:900;
+    color:#00d9ff;
+    white-space:nowrap;
+}
+
+.logo span{
+    color:white;
+}
+
+.search{
+    flex:1;
+    max-width:500px;
+    display:flex;
+}
+
+.search input{
+    width:100%;
+    padding:13px 16px;
+    border:1px solid #263552;
+    border-radius:12px;
+    outline:none;
+    background:#101827;
+    color:white;
+}
+
+.menu{
+    display:flex;
+    gap:8px;
+    align-items:center;
+}
+
+.menu a,
+.login{
+    padding:11px 14px;
+    border-radius:10px;
+    color:#dbeafe;
+}
+
+.menu a:hover,
+.login:hover{
+    background:#172238;
+}
+
+.login{
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
+}
+
+.hero{
+    max-width:1250px;
+    margin:auto;
+    padding:28px 18px;
+}
+
+.hero-box{
+    min-height:330px;
+    padding:45px;
+    border:1px solid #27446c;
+    border-radius:25px;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 20% 20%,#123c68,transparent 35%),
+        radial-gradient(circle at 80% 50%,#43216e,transparent 40%),
+        linear-gradient(135deg,#0b162b,#120c27);
+    display:flex;
+    align-items:center;
+}
+
+.hero-content{
+    max-width:720px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#092d42;
+    color:#5ee7ff;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-size:clamp(38px,6vw,68px);
+    line-height:1;
+    margin-bottom:18px;
+}
+
+.hero h1 span{
+    color:#00d9ff;
+}
+
+.hero p{
+    color:#b9c7dc;
+    line-height:1.7;
+}
+
+.buttons{
+    display:flex;
+    gap:12px;
+    margin-top:25px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:0;
+    cursor:pointer;
+    padding:13px 20px;
+    border-radius:11px;
+    font-weight:bold;
+    color:white;
+}
+
+.primary{
+    background:linear-gradient(90deg,#00bfff,#2563eb);
+}
+
+.secondary{
+    background:#18243a;
+    border:1px solid #334155;
+}
+
+.container{
+    max-width:1250px;
+    margin:auto;
+    padding:0 18px;
+}
+
+.title{
+    margin:25px 0 15px;
+}
+
+.title h2{
+    font-size:28px;
+}
+
+.title p{
+    color:#8493a9;
+    margin-top:5px;
+}
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:12px;
+}
+
+.category{
+    background:#101827;
+    border:1px solid #263552;
+    border-radius:15px;
+    padding:20px 10px;
+    text-align:center;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.category:hover{
+    transform:translateY(-4px);
+    border-color:#00d9ff;
+}
+
+.icon{
+    font-size:35px;
+}
+
+.category b{
+    display:block;
+    margin-top:9px;
+}
+
+.category small{
+    color:#7f8da3;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:15px;
+}
+
+.product{
+    background:linear-gradient(180deg,#121b2d,#0b111d);
+    border:1px solid #263552;
+    border-radius:16px;
+    overflow:hidden;
+    transition:.2s;
+}
+
+.product:hover{
+    transform:translateY(-5px);
+    border-color:#2563eb;
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+
+.product-image{
+    height:145px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:65px;
+    background:linear-gradient(135deg,#0d3150,#25134b);
+}
+
+.product-body{
+    padding:16px;
+}
+
+.product h3{
+    font-size:17px;
+    margin-bottom:7px;
+}
+
+.product p{
+    color:#8290a5;
+    font-size:13px;
+}
+
+.price{
+    color:#5ee7ff;
+    font-size:21px;
+    font-weight:900;
+    margin:14px 0;
+}
+
+.buy{
+    width:100%;
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:14px;
+    margin:30px 0;
+}
+
+.feature{
+    background:#101827;
+    border:1px solid #263552;
+    padding:20px;
+    border-radius:15px;
+}
+
+.feature strong{
+    display:block;
+    margin-bottom:7px;
+}
+
+.feature span{
+    color:#8493a9;
+    font-size:14px;
+}
+
+footer{
+    margin-top:40px;
+    padding:30px 18px;
+    text-align:center;
+    background:#080d18;
+    border-top:1px solid #263552;
+    color:#718096;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:rgba(0,0,0,.75);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+    max-width:420px;
+    padding:25px;
+    border-radius:18px;
+    background:#101827;
+    border:1px solid #334155;
+}
+
+.modal-box h2{
+    margin-bottom:15px;
+}
+
+.modal-box input{
+    width:100%;
+    padding:13px;
+    margin:7px 0;
+    border-radius:10px;
+    border:1px solid #334155;
+    background:#080e1a;
+    color:white;
+    outline:none;
+}
+
+.close{
+    float:right;
+    border:0;
+    background:none;
+    color:white;
+    font-size:27px;
+    cursor:pointer;
+}
+
+@media(max-width:800px){
+
+    .nav{
+        flex-wrap:wrap;
+    }
+
+    .search{
+        order:3;
+        max-width:none;
+        width:100%;
+    }
+
+    .menu a{
+        display:none;
+    }
+
+    .hero-box{
+        padding:30px 20px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+
+        <a href="#" class="logo">
+            💎 X<span>TINHIOS</span>
+        </a>
+
+        <div class="search">
+            <input
+                type="text"
+                id="search"
+                placeholder="🔎 Tìm kiếm sản phẩm..."
+                onkeyup="searchProduct()"
+            >
+        </div>
+
+        <div class="menu">
+            <a href="#categories">Danh mục</a>
+            <a href="#products">Sản phẩm</a>
+
+            <a
+                href="#"
+                class="login"
+                onclick="openLogin();return false"
+            >
+                👤 Đăng nhập
+            </a>
+        </div>
+
+    </div>
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-box">
+
+        <div class="hero-content">
+
+            <span class="badge">
+                ⚡ XTINHIOS GAME STORE
+            </span>
+
+            <h1>
+                SHOP GAME<br>
+                <span>XTINHIOS STORE</span>
+            </h1>
+
+            <p>
+                Kim cương Free Fire, Quân Huy Liên Quân,
+                UC PUBG, Robux, Acc Game, vật phẩm game
+                và nhiều dịch vụ khác.
+            </p>
+
+            <div class="buttons">
+
+                <a
+                    href="#products"
+                    class="btn primary"
+                >
+                    🛒 Mua ngay
+                </a>
+
+                <a
+                    href="#categories"
+                    class="btn secondary"
+                >
+                    🎮 Xem danh mục
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<main class="container">
+
+<section id="categories">
+
+    <div class="title">
+
+        <h2>🎮 Danh mục sản phẩm</h2>
+
+        <p>
+            Chọn danh mục bạn muốn mua
+        </p>
+
+    </div>
+
+
+    <div class="categories">
+
+        <div class="category">
+            <div class="icon">💎</div>
+            <b>Kim cương FF</b>
+            <small>Free Fire</small>
+        </div>
+
+        <div class="category">
+            <div class="icon">🟣</div>
+            <b>Quân Huy</b>
+            <small>Liên Quân</small>
+        </div>
+
+        <div class="category">
+            <div class="icon">🪙</div>
+            <b>UC PUBG</b>
+            <small>PUBG Mobile</small>
+        </div>
+
+        <div class="category">
+            <div class="icon">🟩</div>
+            <b>Robux</b>
+            <small>Roblox</small>
+        </div>
+
+        <div class="category">
+            <div class="icon">🎮</div>
+            <b>Acc Game</b>
+            <small>Tài khoản</small>
+        </div>
+
+        <div class="category">
+            <div class="icon">🔥</div>
+            <b>Vật phẩm</b>
+            <small>Game</small>
+        </div>
+
+        <div class="category">
+            <div class="icon">📱</div>
+            <b>Thẻ cào</b>
+            <small>Điện thoại</small>
+        </div>
+
+        <div class="category">
+            <div class="icon">🛠️</div>
+            <b>Dịch vụ</b>
+            <small>Game</small>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="products">
+
+    <div class="title">
+
+        <h2>🔥 Sản phẩm nổi bật</h2>
+
+        <p>
+            Sản phẩm bán chạy tại XTINHIOS
+        </p>
+
+    </div>
+
+
+    <div class="products" id="productList">
+
+        <div class="product">
+
+            <div class="product-image">
+                💎
+            </div>
+
+            <div class="product-body">
+
+                <h3>
+                    100 Kim cương Free Fire
+                </h3>
+
+                <p>
+                    Nạp kim cương nhanh chóng
+                </p>
+
+                <div class="price">
+                    20.000đ
+                </div>
+
+                <button
+                    class="btn buy"
+                    onclick="buy('100 Kim cương Free Fire')"
+                >
+                    🛒 Mua ngay
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+                💎
+            </div>
+
+            <div class="product-body">
+
+                <h3>
+                    310 Kim cương Free Fire
+                </h3>
+
+                <p>
+                    Gói kim cương phổ biến
+                </p>
+
+                <div class="price">
+                    50.000đ
+                </div>
+
+                <button
+                    class="btn buy"
+                    onclick="buy('310 Kim cương Free Fire')"
+                >
+                    🛒 Mua ngay
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+                🟣
+            </div>
+
+            <div class="product-body">
+
+                <h3>
+                    200 Quân Huy
+                </h3>
+
+                <p>
+                    Nạp Quân Huy Liên Quân
+                </p>
+
+                <div class="price">
+                    35.000đ
+                </div>
+
+                <button
+                    class="btn buy"
+                    onclick="buy('200 Quân Huy')"
+                >
+                    🛒 Mua ngay
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+                🪙
+            </div>
+
+            <div class="product-body">
+
+                <h3>
+                    60 UC PUBG Mobile
+                </h3>
+
+                <p>
+                    Nạp UC PUBG Mobile
+                </p>
+
+                <div class="price">
+                    25.000đ
+                </div>
+
+                <button
+                    class="btn buy"
+                    onclick="buy('60 UC PUBG Mobile')"
+                >
+                    🛒 Mua ngay
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+                🟩
+            </div>
+
+            <div class="product-body">
+
+                <h3>
+                    400 Robux Roblox
+                </h3>
+
+                <p>
+                    Robux dành cho Roblox
+                </p>
+
+                <div class="price">
+                    90.000đ
+                </div>
+
+                <button
+                    class="btn buy"
+                    onclick="buy('400 Robux Roblox')"
+                >
+                    🛒 Mua ngay
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+                🎮
+            </div>
+
+            <div class="product-body">
+
+                <h3>
+                    Acc Game VIP
+                </h3>
+
+                <p>
+                    Tài khoản game chất lượng
+                </p>
+
+                <div class="price">
+                    150.000đ
+                </div>
+
+                <button
+                    class="btn buy"
+                    onclick="buy('Acc Game VIP')"
+                >
+                    🛒 Mua ngay
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+                🔥
+            </div>
+
+            <div class="product-body">
+
+                <h3>
+                    Gói vật phẩm Game
+                </h3>
+
+                <p>
+                    Nhiều vật phẩm hấp dẫn
+                </p>
+
+                <div class="price">
+                    50.000đ
+                </div>
+
+                <button
+                    class="btn buy"
+                    onclick="buy('Gói vật phẩm Game')"
+                >
+                    🛒 Mua ngay
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+                ⭐
+            </div>
+
+            <div class="product-body">
+
+                <h3>
+                    Dịch vụ Game
+                </h3>
+
+                <p>
+                    Hỗ trợ dịch vụ theo yêu cầu
+                </p>
+
+                <div class="price">
+                    Liên hệ
+                </div>
+
+                <button
+                    class="btn buy"
+                    onclick="buy('Dịch vụ Game')"
+                >
+                    🛒 Liên hệ
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="features">
+
+    <div class="feature">
+        <strong>⚡ Tự động 24/7</strong>
+        <span>
+            Hỗ trợ khách hàng nhanh chóng.
+        </span>
+    </div>
+
+    <div class="feature">
+        <strong>🛡️ An toàn</strong>
+        <span>
+            Bảo vệ thông tin khách hàng.
+        </span>
+    </div>
+
+    <div class="feature">
+        <strong>💳 Thanh toán</strong>
+        <span>
+            Có thể tích hợp QR ngân hàng.
+        </span>
+    </div>
+
+    <div class="feature">
+        <strong>🎧 Hỗ trợ</strong>
+        <span>
+            Hỗ trợ khi khách hàng cần.
+        </span>
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <h3>💎 XTINHIOS STORE</h3>
+
+    <p>
+        Shop game • Kim cương • Acc Game • Vật phẩm
+    </p>
+
+    <br>
+
+    © 2026 XTINHIOS STORE
+
+</footer>
+
+
+<!-- LOGIN -->
+
+<div class="modal" id="loginModal">
+
+    <div class="modal-box">
+
+        <button
+            class="close"
+            onclick="closeLogin()"
+        >
+            ×
+        </button>
+
+        <h2>👤 Đăng nhập</h2>
+
+        <input
+            type="text"
+            placeholder="Tên tài khoản hoặc Email"
+        >
+
+        <input
+            type="password"
+            placeholder="Mật khẩu"
+        >
+
+        <button
+            class="btn primary"
+            style="width:100%;margin-top:10px"
+            onclick="loginDemo()"
+        >
+            Đăng nhập
+        </button>
+
+        <p
+            style="color:#8493a9;margin-top:15px;font-size:13px"
+        >
+            Đây là giao diện demo. Muốn đăng nhập thật
+            cần kết nối database/backend.
+        </p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function buy(product){
+
+    alert(
+        "Bạn đã chọn: " +
+        product +
+        "\n\n" +
+        "Đây là bản demo XTINHIOS."
+    );
+
+}
+
+
+function openLogin(){
+
+    document
+        .getElementById("loginModal")
+        .classList
+        .add("active");
+
+}
+
+
+function closeLogin(){
+
+    document
+        .getElementById("loginModal")
+        .classList
+        .remove("active");
+
+}
+
+
+function loginDemo(){
+
+    alert(
+        "Đăng nhập đang ở chế độ demo.\n" +
+        "Bạn cần kết nối backend để sử dụng tài khoản thật."
+    );
+
+}
+
+
+function searchProduct(){
+
+    let keyword =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+    let products =
+        document.querySelectorAll(".product");
+
+    products.forEach(function(product){
+
+        let name =
+            product
+            .querySelector("h3")
+            .innerText
+            .toLowerCase();
+
+        if(name.includes(keyword)){
+            product.style.display="";
+        }
+        else{
+            product.style.display="none";
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
