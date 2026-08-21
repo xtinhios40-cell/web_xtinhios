@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>XTINHIOS STORE</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Arial,sans-serif;
+background:#0b1120;
+color:white;
+}
+
+header{
+background:#00aaff;
+padding:18px;
+text-align:center;
+position:sticky;
+top:0;
+z-index:10;
+}
+
+header h1{
+margin-bottom:12px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 8px;
+font-weight:bold;
+}
+
+.banner{
+padding:60px 20px;
+text-align:center;
+background:linear-gradient(135deg,#0066ff,#00e5ff);
+}
+
+.banner h2{
+font-size:38px;
+margin-bottom:10px;
+}
+
+.banner p{
+font-size:18px;
+}
+
+.container{
+padding:30px 15px;
+max-width:1100px;
+margin:auto;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:#182235;
+padding:22px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 5px 20px #0005;
+transition:.25s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.icon{
+font-size:50px;
+margin-bottom:15px;
+}
+
+.price{
+color:#00ff99;
+font-size:21px;
+font-weight:bold;
+margin:12px;
+}
+
+button{
+width:100%;
+padding:12px;
+border:0;
+border-radius:8px;
+background:#00aaff;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:#0088cc;
+}
+
+footer{
+margin-top:40px;
+padding:25px;
+background:#111827;
+text-align:center;
+}
+
+@media(max-width:600px){
+.banner h2{font-size:28px}
+nav a{
+display:inline-block;
+margin:5px;
+font-size:14px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>💎 XTINHIOS STORE</h1>
+
+<nav>
+<a href="#">Trang chủ</a>
+<a href="#shop">Cửa hàng</a>
+<a href="#">Đăng nhập</a>
+<a href="#">Đăng ký</a>
+<a href="#">Admin</a>
+</nav>
+</header>
+
+<section class="banner">
+<h2>🎮 SHOP GAME XTINHIOS</h2>
+<p>Uy tín • Nhanh chóng • Hỗ trợ 24/7</p>
+</section>
+
+<main class="container" id="shop">
+
+<div class="products">
+
+<div class="card">
+<div class="icon">🔥</div>
+<h3>Tài khoản Free Fire</h3>
+<p class="price">99.000đ</p>
+<button onclick="mua('Tài khoản Free Fire','99.000đ')">
+Mua ngay
+</button>
+</div>
+
+<div class="card">
+<div class="icon">💎</div>
+<h3>Kim Cương Free Fire</h3>
+<p class="price">20.000đ</p>
+<button onclick="mua('Kim Cương Free Fire','20.000đ')">
+Mua ngay
+</button>
+</div>
+
+<div class="card">
+<div class="icon">⚔️</div>
+<h3>Quân Huy Liên Quân</h3>
+<p class="price">50.000đ</p>
+<button onclick="mua('Quân Huy Liên Quân','50.000đ')">
+Mua ngay
+</button>
+</div>
+
+<div class="card">
+<div class="icon">🔫</div>
+<h3>UC PUBG Mobile</h3>
+<p class="price">45.000đ</p>
+<button onclick="mua('UC PUBG Mobile','45.000đ')">
+Mua ngay
+</button>
+</div>
+
+<div class="card">
+<div class="icon">🟩</div>
+<h3>Robux</h3>
+<p class="price">30.000đ</p>
+<button onclick="mua('Robux','30.000đ')">
+Mua ngay
+</button>
+</div>
+
+<div class="card">
+<div class="icon">🎮</div>
+<h3>Tài khoản Liên Quân</h3>
+<p class="price">199.000đ</p>
+<button onclick="mua('Tài khoản Liên Quân','199.000đ')">
+Mua ngay
+</button>
+</div>
+
+</div>
+</main>
+
+<footer>
+© 2026 XTINHIOS STORE
+<br>
+Hỗ trợ khách hàng 24/7
+</footer>
+
+<script>
+function mua(ten,gia){
+let ok=confirm(
+"🛒 XÁC NHẬN ĐƠN HÀNG\n\n"+
+"Sản phẩm: "+ten+
+"\nGiá: "+gia+
+"\n\nBạn có muốn tiếp tục?"
+);
+
+if(ok){
+alert(
+"✅ Đã chọn mua!\n\n"+
+ten+
+"\nGiá: "+gia+
+"\n\nVui lòng liên hệ XTINHIOS để thanh toán."
+);
+}
+}
+</script>
+
+</body>
+</html>
